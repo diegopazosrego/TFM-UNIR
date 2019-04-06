@@ -1,7 +1,7 @@
 {
   "variables": {
-    "aws_access_key": "",
-    "aws_secret_key": ""
+    "aws_access_key": "AKIAJ6O7OXRRUQEI3SCQ",
+    "aws_secret_key": "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"
   },
 
   "provisioners": [
@@ -13,18 +13,18 @@
             "apt-add-repository ppa:ansible/ansible -y",
             "/usr/bin/apt-get update",
             "/usr/bin/apt-get -y install ansible",
-            "mkdir /home/ubuntu/node-app",
-            "chown ubuntu:ubuntu /home/ubuntu/node-app"
+            "mkdir /home/ubuntu/tfm-app",
+            "chown ubuntu:ubuntu /home/ubuntu/tfm-app"
         ]
     },
     {
       "type": "file",
       "source": ".",
-      "destination": "/home/ubuntu/node-app/"
+      "destination": "/home/ubuntu/tfm-app/"
     },
     {
       "type": "ansible-local",
-      "playbook_file": "packer/ansible-playbook.yml"
+      "playbook_file": "AMI/ansible-playbook.yml"
     }
   ],
 
@@ -32,7 +32,7 @@
     "type": "amazon-ebs",
     "access_key": "{{user `aws_access_key`}}",
     "secret_key": "{{user `aws_secret_key`}}",
-    "region": "ap-south-1",
+    "region": "eu-west-1",
     "source_ami_filter": {
       "filters": {
         "virtualization-type": "hvm",
