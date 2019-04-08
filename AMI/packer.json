@@ -19,7 +19,7 @@
     },
     {
       "type": "file",
-      "source": "/root/code/TFM-UNIR/",
+      "source": "/root/code/TFM-UNIR-master/",
       "destination": "/home/ubuntu/tfm-app/"
     },
     {
