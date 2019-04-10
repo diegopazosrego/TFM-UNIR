@@ -57,11 +57,6 @@ pipeline {
           }
         }
       }
-    stage('Check-4') {
-      steps {
-        sh 'echo "OK"'
-      }
-    }
       environment {
         npm_config_cache = 'npm-cache'
       }
