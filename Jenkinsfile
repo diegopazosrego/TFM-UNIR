@@ -6,10 +6,10 @@ pipeline {
 
   }
   stages {
-     stage('Check-PREOK') {
+    stage('Check-PREOK') {
       steps {
         sh 'echo "OK"'
-      }
+    }
     stage('Build') {
       steps {
         sh 'npm install'
@@ -30,10 +30,10 @@ pipeline {
 
         }
       }
-      stage('Check-POSTOK') {
+    stage('Check-POSTOK') {
       steps {
         sh 'echo "OK"'
-      }
+    }
       stage('AWS Deployment') {
         steps {
           withCredentials(bindings: [
