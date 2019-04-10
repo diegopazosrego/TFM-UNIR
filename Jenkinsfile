@@ -6,7 +6,7 @@ pipeline {
 
   }
   stages {
-    stage('Check-PREOK') {
+    stage('Check-1') {
       steps {
         sh 'echo "OK"'
       }
@@ -16,7 +16,7 @@ pipeline {
         sh 'npm install'
       }
     }
-    stage('Check') {
+    stage('Check-2') {
       steps {
         sh 'echo "OK"'
       }
@@ -31,7 +31,7 @@ pipeline {
 
         }
       }
-    stage('Check-POSTOK') {
+    stage('Check-3') {
       steps {
         sh 'echo "OK"'
       }
@@ -57,11 +57,11 @@ pipeline {
           }
         }
       }
-      stage('Check-FIN') {
-        steps {
+    stage('Check-4') {
+      steps {
         sh 'echo "OK"'
-        }
       }
+    }
       environment {
         npm_config_cache = 'npm-cache'
       }
