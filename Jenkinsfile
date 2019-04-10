@@ -11,6 +11,11 @@ pipeline {
         sh 'npm install'
       }
     }
+    stage('Check') {
+      steps {
+        sh 'echo "OK"'
+      }
+    }
     stage('Create Packer AMI') {
       steps {
         withCredentials(bindings: [
