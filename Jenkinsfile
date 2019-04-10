@@ -6,6 +6,10 @@ pipeline {
 
   }
   stages {
+     stage('Check-PREOK') {
+      steps {
+        sh 'echo "OK"'
+      }
     stage('Build') {
       steps {
         sh 'npm install'
@@ -25,6 +29,10 @@ pipeline {
           }
 
         }
+      }
+      stage('Check-POSTOK') {
+      steps {
+        sh 'echo "OK"'
       }
       stage('AWS Deployment') {
         steps {
@@ -46,6 +54,10 @@ pipeline {
 
           }
         }
+      }
+      stage('Check-FIN') {
+      steps {
+        sh 'echo "OK"'
       }
       environment {
         npm_config_cache = 'npm-cache'
