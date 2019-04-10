@@ -9,6 +9,7 @@ pipeline {
     stage('Check-PREOK') {
       steps {
         sh 'echo "OK"'
+      }
     }
     stage('Build') {
       steps {
@@ -33,8 +34,9 @@ pipeline {
     stage('Check-POSTOK') {
       steps {
         sh 'echo "OK"'
+      }
     }
-      stage('AWS Deployment') {
+    stage('AWS Deployment') {
         steps {
           withCredentials(bindings: [
                                                             usernamePassword(credentialsId: 'ada90a34-30ef-47fb-8a7f-a97fe69ff93f', passwordVariable: 'AWS_SECRET', usernameVariable: 'AWS_KEY'),
@@ -56,8 +58,9 @@ pipeline {
         }
       }
       stage('Check-FIN') {
-      steps {
+        steps {
         sh 'echo "OK"'
+        }
       }
       environment {
         npm_config_cache = 'npm-cache'
